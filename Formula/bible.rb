@@ -5,26 +5,28 @@
 class Bible < Formula
   desc "A command line bible"
   homepage "https://github.com/Jmainguy/bible"
-  version "0.0.0"
+  version "0.0.1"
   license "GPL-2.0"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/bible/releases/download/v0.0.0/bible_Darwin_x86_64.tar.gz"
-      sha256 "eb2a3b500b82355cd50435ff708f7d4c715d2bf4fd457d35598590419574648a"
+      url "https://github.com/Jmainguy/bible/releases/download/v0.0.1/bible_Darwin_x86_64.tar.gz"
+      sha256 "cd0436cc5f309d15a3753eef1e895f4b266b13b538d45a5c6cad5c27a0dbadbb"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/bible/releases/download/v0.0.0/bible_Linux_x86_64.tar.gz"
-      sha256 "dba382bf095b678ab1e62aea8fe28a99d6cddf800e6f29d7016f907ff55dd2b6"
+      url "https://github.com/Jmainguy/bible/releases/download/v0.0.1/bible_Linux_x86_64.tar.gz"
+      sha256 "c520fd8f40727f4348645ef5e32e1d9a60351d26350e30ecd11261ed3a9ffb1b"
     end
   end
 
   def install
     bin.install "bible"
+    mkdir_p "/opt/bible"
+    cp "database/bible.db", "/opt/bible/bible.db"
   end
 
   test do
