@@ -5,21 +5,21 @@
 class Bible < Formula
   desc "A command line bible"
   homepage "https://github.com/Jmainguy/bible"
-  version "0.0.1"
+  version "0.0.0"
   license "GPL-2.0"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/bible/releases/download/v0.0.1/bible_Darwin_x86_64.tar.gz"
-      sha256 "cd0436cc5f309d15a3753eef1e895f4b266b13b538d45a5c6cad5c27a0dbadbb"
+      url "https://github.com/Jmainguy/bible/releases/download/v0.0.0/bible_Darwin_x86_64.tar.gz"
+      sha256 "1db5386467655c4f99f55b0a0bff6c836df20004592c5fae64fccf1992132b1b"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/bible/releases/download/v0.0.1/bible_Linux_x86_64.tar.gz"
-      sha256 "c520fd8f40727f4348645ef5e32e1d9a60351d26350e30ecd11261ed3a9ffb1b"
+      url "https://github.com/Jmainguy/bible/releases/download/v0.0.0/bible_Linux_x86_64.tar.gz"
+      sha256 "36ee40ba19f73aeb6bd80284e7423b8515f506ff3af28cceb9321a923602be94"
     end
   end
 
