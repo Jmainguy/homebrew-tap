@@ -12,14 +12,14 @@ class Bible < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/Jmainguy/bible/releases/download/v0.0.0/bible_Darwin_x86_64.tar.gz"
-      sha256 "e1270ac06cd920adf79d2557ec116639869132e42d62333c6e70b7b2e4569f7b"
+      sha256 "eb2a3b500b82355cd50435ff708f7d4c715d2bf4fd457d35598590419574648a"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
       url "https://github.com/Jmainguy/bible/releases/download/v0.0.0/bible_Linux_x86_64.tar.gz"
-      sha256 "746d0a6b797cd18af4629e93a6b25edbb09b9a65b1df3fe0d9fec313534ce8ac"
+      sha256 "dba382bf095b678ab1e62aea8fe28a99d6cddf800e6f29d7016f907ff55dd2b6"
     end
   end
 
