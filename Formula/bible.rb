@@ -25,7 +25,7 @@ class Bible < Formula
 
   def install
     bin.install "bible"
-    sudo chmod 777 /opt
+    system "sudo chmod 777 /opt"
     mkdir_p "/opt/bible"
     cp "database/bible.db", "/opt/bible/bible.db"
   end
