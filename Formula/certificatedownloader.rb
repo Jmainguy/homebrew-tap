@@ -12,14 +12,14 @@ class Certificatedownloader < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/Jmainguy/certificatedownloader/releases/download/v0.1.3/certificatedownloader_Darwin_x86_64.tar.gz"
-      sha256 "b18433e710209c8e5d55a5cf0d7e732ef9a721e2f4d4cb4ff69b44922dfc3d9c"
+      sha256 "9faccc14fd323f9d4c632f46dc2e8b4243aadc5be4efd2d4707f477a8ef675d7"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
       url "https://github.com/Jmainguy/certificatedownloader/releases/download/v0.1.3/certificatedownloader_Linux_x86_64.tar.gz"
-      sha256 "fdfed7aeadfef5c7d140c8d688f77fc7cb065a25bae99e53260ce1a753703eab"
+      sha256 "46d7f90c542a73fe622860589e7f88baa8180c2c4c439b47d3a0c5e1948ff9fc"
     end
   end
 
