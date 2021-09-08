@@ -12,21 +12,19 @@ class Bible < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/Jmainguy/bible/releases/download/v0.0.1/bible_Darwin_x86_64.tar.gz"
-      sha256 "6883b2fc3ab388559fbb6fc73d3587996503a33ab2f88ee0df5f8e1e9f7b56da"
+      sha256 "3f0b25d9f7faaac66e087a093934c727f93fb135e8c95bfc6f52f5f07de92b7c"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
       url "https://github.com/Jmainguy/bible/releases/download/v0.0.1/bible_Linux_x86_64.tar.gz"
-      sha256 "cdff37dec2a3a2709312eb5dc465b8e3ee41850771fb7d54faa34e02f668d169"
+      sha256 "dec7ee96350b66de0f224fdb617a1ca89e9262e6e4e850cecb3d7b637fa6c46e"
     end
   end
 
   def install
     bin.install "bible"
-    mkdir_p "~/.bible"
-    cp "database/bible.db", "~/.bible/bible.db"
   end
 
   test do
