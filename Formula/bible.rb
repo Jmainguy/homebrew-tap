@@ -5,29 +5,28 @@
 class Bible < Formula
   desc "A command line bible"
   homepage "https://github.com/Jmainguy/bible"
-  version "0.0.0"
+  version "0.0.1"
   license "GPL-2.0"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/bible/releases/download/v0.0.0/bible_Darwin_x86_64.tar.gz"
-      sha256 "1db5386467655c4f99f55b0a0bff6c836df20004592c5fae64fccf1992132b1b"
+      url "https://github.com/Jmainguy/bible/releases/download/v0.0.1/bible_Darwin_x86_64.tar.gz"
+      sha256 "6883b2fc3ab388559fbb6fc73d3587996503a33ab2f88ee0df5f8e1e9f7b56da"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/bible/releases/download/v0.0.0/bible_Linux_x86_64.tar.gz"
-      sha256 "36ee40ba19f73aeb6bd80284e7423b8515f506ff3af28cceb9321a923602be94"
+      url "https://github.com/Jmainguy/bible/releases/download/v0.0.1/bible_Linux_x86_64.tar.gz"
+      sha256 "cdff37dec2a3a2709312eb5dc465b8e3ee41850771fb7d54faa34e02f668d169"
     end
   end
 
   def install
     bin.install "bible"
-    system "sudo chmod 777 /opt"
-    mkdir_p "/opt/bible"
-    cp "database/bible.db", "/opt/bible/bible.db"
+    mkdir_p "~/.bible"
+    cp "database/bible.db", "~/.bible/bible.db"
   end
 
   test do
