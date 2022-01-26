@@ -9,17 +9,17 @@ class Servmon < Formula
   license "GPL-2.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/servmon/releases/download/v0.0.0/servmon_Darwin_x86_64.tar.gz"
-      sha256 "d190ee0c454427eb566a295190a10bcd4bc4e1b27973d99ef3b717e57bc87570"
+    if Hardware::CPU.arm?
+      url "https://github.com/Jmainguy/servmon/releases/download/v0.0.0/servmon_Darwin_arm64.tar.gz"
+      sha256 "2655e56a2373ed88027d9f463c261814fb99d148228cb4db34f32b59ec905cfe"
 
       def install
         bin.install "servmon"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/Jmainguy/servmon/releases/download/v0.0.0/servmon_Darwin_arm64.tar.gz"
-      sha256 "1c7a4caa6c8ad49742d33078ba68d2c4710b8006c70bf1a259b51dd550073b72"
+    if Hardware::CPU.intel?
+      url "https://github.com/Jmainguy/servmon/releases/download/v0.0.0/servmon_Darwin_x86_64.tar.gz"
+      sha256 "629e4ff950cf72d36328cb1f3d06d3cf098bc842fa29640917636da0ec2f30c7"
 
       def install
         bin.install "servmon"
@@ -30,7 +30,7 @@ class Servmon < Formula
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/Jmainguy/servmon/releases/download/v0.0.0/servmon_Linux_arm64.tar.gz"
-      sha256 "4ab9d388f7d48df05d9273bd716462ba2519361b37628e9972ae6e32f45527bd"
+      sha256 "36bc74849001d485870e20e638b476b7ae094c3787b7929d1b4bc71a97c8fe43"
 
       def install
         bin.install "servmon"
@@ -38,7 +38,7 @@ class Servmon < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/Jmainguy/servmon/releases/download/v0.0.0/servmon_Linux_x86_64.tar.gz"
-      sha256 "0462d0caaa7c29050d158e9f681ee0c16fbbe29dbed5b867710b935dbc3b62dd"
+      sha256 "1f419fa02c25c8cbf16b34d4b1dace031e585a81d99eca76fa4ae7e478b63e6a"
 
       def install
         bin.install "servmon"
