@@ -5,21 +5,21 @@
 class Servmon < Formula
   desc "A service monitor written in go"
   homepage "https://github.com/Jmainguy/servmon"
-  version "0.0.0"
+  version "0.1.0"
   license "GPL-2.0"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/Jmainguy/servmon/releases/download/v0.0.0/servmon_Darwin_arm64.tar.gz"
-      sha256 "2655e56a2373ed88027d9f463c261814fb99d148228cb4db34f32b59ec905cfe"
+    if Hardware::CPU.intel?
+      url "https://github.com/Jmainguy/servmon/releases/download/v0.1.0/servmon_Darwin_x86_64.tar.gz"
+      sha256 "91a5116e936eec2fbb412b8ae39d0b64a80ffda99f7af0e49dcb9e1baa597df1"
 
       def install
         bin.install "servmon"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/servmon/releases/download/v0.0.0/servmon_Darwin_x86_64.tar.gz"
-      sha256 "629e4ff950cf72d36328cb1f3d06d3cf098bc842fa29640917636da0ec2f30c7"
+    if Hardware::CPU.arm?
+      url "https://github.com/Jmainguy/servmon/releases/download/v0.1.0/servmon_Darwin_arm64.tar.gz"
+      sha256 "5839d164f339fa59008626d6a5dfabfc59bf2f23e5066e8f5287ce56d310bce2"
 
       def install
         bin.install "servmon"
@@ -28,17 +28,17 @@ class Servmon < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Jmainguy/servmon/releases/download/v0.0.0/servmon_Linux_arm64.tar.gz"
-      sha256 "36bc74849001d485870e20e638b476b7ae094c3787b7929d1b4bc71a97c8fe43"
+    if Hardware::CPU.intel?
+      url "https://github.com/Jmainguy/servmon/releases/download/v0.1.0/servmon_Linux_x86_64.tar.gz"
+      sha256 "7da441a4b3c98643c3cf7a58fcd743f4317025f6974b9fbe68d386bc7d575b09"
 
       def install
         bin.install "servmon"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/servmon/releases/download/v0.0.0/servmon_Linux_x86_64.tar.gz"
-      sha256 "1f419fa02c25c8cbf16b34d4b1dace031e585a81d99eca76fa4ae7e478b63e6a"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Jmainguy/servmon/releases/download/v0.1.0/servmon_Linux_arm64.tar.gz"
+      sha256 "8f0f2509f339791deb69aa10c4b909f7fb87171414e7bd22e3250a358b70aee0"
 
       def install
         bin.install "servmon"
