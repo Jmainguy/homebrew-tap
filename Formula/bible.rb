@@ -7,7 +7,6 @@ class Bible < Formula
   homepage "https://github.com/Jmainguy/bible"
   version "0.0.1"
   license "GPL-2.0"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?

@@ -7,7 +7,6 @@ class Czechdns < Formula
   homepage "https://github.com/Jmainguy/czechdns"
   version "0.0.2"
   license "GPL-2.0"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?

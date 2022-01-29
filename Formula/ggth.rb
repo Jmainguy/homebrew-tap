@@ -7,7 +7,6 @@ class Ggth < Formula
   homepage "https://github.com/Jmainguy/ggth"
   version "0.0.0"
   license "GPL-2.0"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?

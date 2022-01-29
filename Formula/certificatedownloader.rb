@@ -7,7 +7,6 @@ class Certificatedownloader < Formula
   homepage "https://github.com/Jmainguy/certificatedownloader"
   version "0.1.3"
   license "GPL-2.0"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
