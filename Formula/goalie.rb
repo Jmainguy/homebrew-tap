@@ -5,13 +5,21 @@
 class Goalie < Formula
   desc "A golang CLI to display various stats about Hockey teams and their players"
   homepage "https://github.com/Jmainguy/goalie"
-  version "0.0.0"
+  version "0.1.0"
   license "GPL-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/goalie/releases/download/v0.0.0/goalie_Darwin_x86_64.tar.gz"
-      sha256 "88dea34795418f8389a45c7f3ddd7f8636a9d5679a80411d18c8b4dd75e89902"
+      url "https://github.com/Jmainguy/goalie/releases/download/v0.1.0/goalie_Darwin_x86_64.tar.gz"
+      sha256 "05e731197025b5451378c14f15760426c7ed5befc152ad63a5194f3dad6d623c"
+
+      def install
+        bin.install "goalie"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/Jmainguy/goalie/releases/download/v0.1.0/goalie_Darwin_arm64.tar.gz"
+      sha256 "1c86885e1fc65a44d13586d3fbfc1d11ac2ec6fdb88401e01a8f38d1cd5b763d"
 
       def install
         bin.install "goalie"
@@ -21,8 +29,16 @@ class Goalie < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/goalie/releases/download/v0.0.0/goalie_Linux_x86_64.tar.gz"
-      sha256 "97a86261362785eda7dd28507142ce560e16a17086335d66212cbb50944bc49d"
+      url "https://github.com/Jmainguy/goalie/releases/download/v0.1.0/goalie_Linux_x86_64.tar.gz"
+      sha256 "a4a079c9b8aa3ca969ce787b7422d235fb94b8ae17f781f952db6c935c0641dd"
+
+      def install
+        bin.install "goalie"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Jmainguy/goalie/releases/download/v0.1.0/goalie_Linux_arm64.tar.gz"
+      sha256 "11751309c9dd77a91b5d3f411f51ff70672eaf9d493bb225c965e1e95227a92b"
 
       def install
         bin.install "goalie"
