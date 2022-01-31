@@ -5,25 +5,45 @@
 class Indent < Formula
   desc "Ident from a file to stdout using spaces"
   homepage "https://github.com/Jmainguy/indent"
-  version "0.0.1"
+  version "0.1.0"
   license "GPL-2.0"
 
   on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/Jmainguy/indent/releases/download/v0.1.0/indent_Darwin_arm64.tar.gz"
+      sha256 "a8d26ad332f40abd4e8130a2fc211f4259fe877d9b4a388e466c56631840da6c"
+
+      def install
+        bin.install "indent"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/indent/releases/download/v0.0.1/indent_Darwin_x86_64.tar.gz"
-      sha256 "6d4cde4c52ac587a699960853725162a84d03dc79c2c70473aedc7b2887ac35d"
+      url "https://github.com/Jmainguy/indent/releases/download/v0.1.0/indent_Darwin_x86_64.tar.gz"
+      sha256 "c37a5f4fb1c9ad085fa8e905800079814f3cf775acefad7e450282da14a57f4b"
+
+      def install
+        bin.install "indent"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/indent/releases/download/v0.0.1/indent_Linux_x86_64.tar.gz"
-      sha256 "ac84903cc498bfd716d218d52245a6f6c583ef3f8dd8921664f5048391e8e340"
-    end
-  end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Jmainguy/indent/releases/download/v0.1.0/indent_Linux_arm64.tar.gz"
+      sha256 "faced14058f96da4e4c21257ee4685cf97380e0fd5714c77d24952478b52d019"
 
-  def install
-    bin.install "indent"
+      def install
+        bin.install "indent"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/Jmainguy/indent/releases/download/v0.1.0/indent_Linux_x86_64.tar.gz"
+      sha256 "00e75eb0f03fb4544fb8ad92b55b193eec448c3dbb08fa11c8ed0966d9f7f984"
+
+      def install
+        bin.install "indent"
+      end
+    end
   end
 
   test do
