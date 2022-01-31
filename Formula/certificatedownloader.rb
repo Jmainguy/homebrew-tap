@@ -5,25 +5,45 @@
 class Certificatedownloader < Formula
   desc "Download and trust certs"
   homepage "https://github.com/Jmainguy/certificatedownloader"
-  version "0.1.3"
+  version "0.2.0"
   license "GPL-2.0"
 
   on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/Jmainguy/certificatedownloader/releases/download/v0.2.0/certificatedownloader_Darwin_arm64.tar.gz"
+      sha256 "1bafd9b995a1d9fb69509b7fca34e62d2fde3d99b5d310ab61cd4539e17bd736"
+
+      def install
+        bin.install "certificatedownloader"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/certificatedownloader/releases/download/v0.1.3/certificatedownloader_Darwin_x86_64.tar.gz"
-      sha256 "9faccc14fd323f9d4c632f46dc2e8b4243aadc5be4efd2d4707f477a8ef675d7"
+      url "https://github.com/Jmainguy/certificatedownloader/releases/download/v0.2.0/certificatedownloader_Darwin_x86_64.tar.gz"
+      sha256 "a9908f08e13afd23ab7f9310b4810633ca85174939b222c5092b28bb4baa39f6"
+
+      def install
+        bin.install "certificatedownloader"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/certificatedownloader/releases/download/v0.1.3/certificatedownloader_Linux_x86_64.tar.gz"
-      sha256 "46d7f90c542a73fe622860589e7f88baa8180c2c4c439b47d3a0c5e1948ff9fc"
-    end
-  end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Jmainguy/certificatedownloader/releases/download/v0.2.0/certificatedownloader_Linux_arm64.tar.gz"
+      sha256 "8a2813aad725e341cc55ea630da4e40a4d6be7fe32ab18094b1112e8d97806d4"
 
-  def install
-    bin.install "certificatedownloader"
+      def install
+        bin.install "certificatedownloader"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/Jmainguy/certificatedownloader/releases/download/v0.2.0/certificatedownloader_Linux_x86_64.tar.gz"
+      sha256 "4311631b2d71be46b7a208e9d43dc5072aa47cf50434acbf54e2a99bff7b2f36"
+
+      def install
+        bin.install "certificatedownloader"
+      end
+    end
   end
 
   test do
