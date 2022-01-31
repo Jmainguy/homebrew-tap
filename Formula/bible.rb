@@ -5,25 +5,45 @@
 class Bible < Formula
   desc "A command line bible"
   homepage "https://github.com/Jmainguy/bible"
-  version "0.0.1"
+  version "0.1.0"
   license "GPL-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/bible/releases/download/v0.0.1/bible_Darwin_x86_64.tar.gz"
-      sha256 "3f0b25d9f7faaac66e087a093934c727f93fb135e8c95bfc6f52f5f07de92b7c"
+      url "https://github.com/Jmainguy/bible/releases/download/v0.1.0/bible_Darwin_x86_64.tar.gz"
+      sha256 "61d8074d0aff3bba57e3a580e7e5a79f7d4304537e5ce6b530480829177fc758"
+
+      def install
+        bin.install "bible"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/Jmainguy/bible/releases/download/v0.1.0/bible_Darwin_arm64.tar.gz"
+      sha256 "0b61d2574d6c07862573ec387e2c08f5f8d2cd525f3b4d9f48c9ee1ae0858d61"
+
+      def install
+        bin.install "bible"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/bible/releases/download/v0.0.1/bible_Linux_x86_64.tar.gz"
-      sha256 "dec7ee96350b66de0f224fdb617a1ca89e9262e6e4e850cecb3d7b637fa6c46e"
-    end
-  end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Jmainguy/bible/releases/download/v0.1.0/bible_Linux_arm64.tar.gz"
+      sha256 "c5e384c002f0ea565a4b4d55ac38f1ad08361d2d05b7b7e891a7fe6ad3e590a3"
 
-  def install
-    bin.install "bible"
+      def install
+        bin.install "bible"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/Jmainguy/bible/releases/download/v0.1.0/bible_Linux_x86_64.tar.gz"
+      sha256 "958fed902de5c2d8e0cc41df748f0fc6960809b5962d36f47e7b25807f9ccae9"
+
+      def install
+        bin.install "bible"
+      end
+    end
   end
 
   test do
