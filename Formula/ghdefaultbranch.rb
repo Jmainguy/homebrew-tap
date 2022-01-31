@@ -5,25 +5,45 @@
 class Ghdefaultbranch < Formula
   desc "Check Github for Pull Requests, that are not Drafts, in repos the user cares about."
   homepage "https://github.com/Jmainguy/ghdefaultbranch"
-  version "0.0.0"
+  version "0.1.0"
   license "GPL-2.0"
 
   on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/Jmainguy/ghdefaultbranch/releases/download/v0.1.0/ghdefaultbranch_Darwin_arm64.tar.gz"
+      sha256 "02f80068b0c05531024e2b5d2ef8b74e4f3932d7cdbae4d4af1a5a284f6d5e27"
+
+      def install
+        bin.install "ghdefaultbranch"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/ghdefaultbranch/releases/download/v0.0.0/ghdefaultbranch_Darwin_x86_64.tar.gz"
-      sha256 "dbe5d04b1aee49241acab81b108f6f613f6e5c6b5b6a6726ece96736f347ac1c"
+      url "https://github.com/Jmainguy/ghdefaultbranch/releases/download/v0.1.0/ghdefaultbranch_Darwin_x86_64.tar.gz"
+      sha256 "f510aebe2e74894938fe1d6f2a60079ed45d07d578b8989d906b4530fac5aeda"
+
+      def install
+        bin.install "ghdefaultbranch"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/ghdefaultbranch/releases/download/v0.0.0/ghdefaultbranch_Linux_x86_64.tar.gz"
-      sha256 "d11af6252e0acc5e3cffb8b610ef4424730255d7c53b12de88d8756830721c00"
-    end
-  end
+      url "https://github.com/Jmainguy/ghdefaultbranch/releases/download/v0.1.0/ghdefaultbranch_Linux_x86_64.tar.gz"
+      sha256 "0d7b74b7b186ddcc4be6b783d0c3d27c3c5321c0a76f227a19d98d9433e90468"
 
-  def install
-    bin.install "ghdefaultbranch"
+      def install
+        bin.install "ghdefaultbranch"
+      end
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Jmainguy/ghdefaultbranch/releases/download/v0.1.0/ghdefaultbranch_Linux_arm64.tar.gz"
+      sha256 "e29a1f5c02b174df15e324dfca60ee3621f102651ea45177c83641543fb4ef98"
+
+      def install
+        bin.install "ghdefaultbranch"
+      end
+    end
   end
 
   test do
