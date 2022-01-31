@@ -5,25 +5,45 @@
 class Czechdns < Formula
   desc "A golang utility to check DNS records against expected results"
   homepage "https://github.com/Jmainguy/czechdns"
-  version "0.0.2"
+  version "0.1.0"
   license "GPL-2.0"
 
   on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/Jmainguy/czechdns/releases/download/v0.1.0/czechdns_Darwin_arm64.tar.gz"
+      sha256 "ad667f875f095f47d7ead41295c76676f46da4c4be16d7f47d2a27529396cb1e"
+
+      def install
+        bin.install "czechdns"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/czechdns/releases/download/v0.0.2/czechdns_Darwin_x86_64.tar.gz"
-      sha256 "84ed7d1ca85cf64958ede4741ae275b1eb922feebf2a920cb49575a53ffd0da3"
+      url "https://github.com/Jmainguy/czechdns/releases/download/v0.1.0/czechdns_Darwin_x86_64.tar.gz"
+      sha256 "f00a4da8fe737ee68011dbef0f82362d14cb69cd8e753df2ad0d5001100302c4"
+
+      def install
+        bin.install "czechdns"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/czechdns/releases/download/v0.0.2/czechdns_Linux_x86_64.tar.gz"
-      sha256 "38f8755c333fce91c5749207f3b9ccf4e6c6b088683118aab29f442559f92a1c"
-    end
-  end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Jmainguy/czechdns/releases/download/v0.1.0/czechdns_Linux_arm64.tar.gz"
+      sha256 "1eddfaf6b5875f91e6abd544e63f5baced0e5731f5ed2ddf1ca705f63dcb74a9"
 
-  def install
-    bin.install "czechdns"
+      def install
+        bin.install "czechdns"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/Jmainguy/czechdns/releases/download/v0.1.0/czechdns_Linux_x86_64.tar.gz"
+      sha256 "a782d80cf570573d5926d40d0f213d2cd711170a2ceefb7d7b206712a6d226e3"
+
+      def install
+        bin.install "czechdns"
+      end
+    end
   end
 
   test do
