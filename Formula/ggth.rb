@@ -5,25 +5,45 @@
 class Ggth < Formula
   desc "Golang Github Template Helper"
   homepage "https://github.com/Jmainguy/ggth"
-  version "0.0.0"
+  version "0.1.0"
   license "GPL-2.0"
 
   on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/Jmainguy/ggth/releases/download/v0.1.0/ggth_Darwin_arm64.tar.gz"
+      sha256 "16ac02f175c80753003e93d10a52fe7b3630da5d57cef251e7b34ff77399782f"
+
+      def install
+        bin.install "ggth"
+      end
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/ggth/releases/download/v0.0.0/ggth_Darwin_x86_64.tar.gz"
-      sha256 "9fb638f71cb0a1b6575a0742fae05dfa31cad8d276c3ca14383237e3ac2a6ec0"
+      url "https://github.com/Jmainguy/ggth/releases/download/v0.1.0/ggth_Darwin_x86_64.tar.gz"
+      sha256 "c369a49b9495b48216cf4b320ea847e1346b95df8c92e8d156dcebfab1fa233d"
+
+      def install
+        bin.install "ggth"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/ggth/releases/download/v0.0.0/ggth_Linux_x86_64.tar.gz"
-      sha256 "fa42d12885d7af465c735a6144a505ce5f4f18f19742d3be5f657229bdca5066"
-    end
-  end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Jmainguy/ggth/releases/download/v0.1.0/ggth_Linux_arm64.tar.gz"
+      sha256 "97318843e31b62492b09cb5dd5fbd20b9dd6d9a71f45bc4ec99a5df6c53d7b7f"
 
-  def install
-    bin.install "ggth"
+      def install
+        bin.install "ggth"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/Jmainguy/ggth/releases/download/v0.1.0/ggth_Linux_x86_64.tar.gz"
+      sha256 "cea8565c1b0cb831d355f33805abb70a633ab0805380d22e58ef3e3e2660cc33"
+
+      def install
+        bin.install "ggth"
+      end
+    end
   end
 
   test do
