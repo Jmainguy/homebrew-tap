@@ -5,21 +5,21 @@
 class Bible < Formula
   desc "A command line bible"
   homepage "https://github.com/Jmainguy/bible"
-  version "0.3.0"
+  version "0.3.1"
   license "GPL-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/Jmainguy/bible/releases/download/v0.3.0/bible_Darwin_arm64.tar.gz"
-      sha256 "6914ed9cf930e92176fc56c32a47174daec7b56b1c408a99dc34c5b3f30956cc"
+      url "https://github.com/Jmainguy/bible/releases/download/v0.3.1/bible_Darwin_arm64.tar.gz"
+      sha256 "a6ec0c274ff612add6e41b196a9a51be82f53120031b308f8a480cb35daaee66"
 
       def install
         bin.install "bible"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/bible/releases/download/v0.3.0/bible_Darwin_x86_64.tar.gz"
-      sha256 "c60b7d0f84d973c4625edf4100c6b0e8a1b2ece973986c9aed06d4587b1dbbba"
+      url "https://github.com/Jmainguy/bible/releases/download/v0.3.1/bible_Darwin_x86_64.tar.gz"
+      sha256 "0277d6149d9bb1166e3afe28207ec828aadc0f9cdc189256c5cb93f948ec8f82"
 
       def install
         bin.install "bible"
@@ -28,17 +28,17 @@ class Bible < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/bible/releases/download/v0.3.0/bible_Linux_x86_64.tar.gz"
-      sha256 "c47f0cd7866b38bb8b84ca45e02f53df89b5257a800f302b39a070b8a79d5d0e"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Jmainguy/bible/releases/download/v0.3.1/bible_Linux_arm64.tar.gz"
+      sha256 "e89e866dde659ff11b0734e5efa2f78cc779f4687c5173877679a4066d7250a0"
 
       def install
         bin.install "bible"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Jmainguy/bible/releases/download/v0.3.0/bible_Linux_arm64.tar.gz"
-      sha256 "08367e5131fbc74987da17cfbd2efeeed4bc3d7ca880c5ea7c8c652aa5ae230a"
+    if Hardware::CPU.intel?
+      url "https://github.com/Jmainguy/bible/releases/download/v0.3.1/bible_Linux_x86_64.tar.gz"
+      sha256 "a41604d9b87eb0a9bf72b454ab9cbdb13556e712fa8d642814f81d73fdcb98f3"
 
       def install
         bin.install "bible"
