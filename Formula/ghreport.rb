@@ -5,21 +5,21 @@
 class Ghreport < Formula
   desc "Check Github for Pull Requests, that are not Drafts, in repos the user cares about."
   homepage "https://github.com/Jmainguy/ghreport"
-  version "0.0.1"
+  version "0.1.0"
   license "GPL-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/Jmainguy/ghreport/releases/download/v0.0.1/ghreport_Darwin_arm64.tar.gz"
-      sha256 "bd2a5c7f0c91a73629abde2b1457e14034d6a1c08726fda2a2c4a9082851df77"
+      url "https://github.com/Jmainguy/ghreport/releases/download/v0.1.0/ghreport_Darwin_arm64.tar.gz"
+      sha256 "717c336ed2d9bae6d14d0dde3291898284f7340a65d36e3c641f2f24c27a15cc"
 
       def install
         bin.install "ghreport"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/ghreport/releases/download/v0.0.1/ghreport_Darwin_x86_64.tar.gz"
-      sha256 "64431dd40020555f53cfbb19e2b7a1a7b0cba60d5f1e1f71a55f971f8fb9b2d4"
+      url "https://github.com/Jmainguy/ghreport/releases/download/v0.1.0/ghreport_Darwin_x86_64.tar.gz"
+      sha256 "775fdad7bb84f49bac2ec324afcb532f4c2fc57fecc91236bae0da6b7dac0cf7"
 
       def install
         bin.install "ghreport"
@@ -28,17 +28,17 @@ class Ghreport < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/Jmainguy/ghreport/releases/download/v0.0.1/ghreport_Linux_x86_64.tar.gz"
-      sha256 "85e4686e1e966be339f64d1fe88ada408bc314795d3659725b8db52ee3dadcdd"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/Jmainguy/ghreport/releases/download/v0.1.0/ghreport_Linux_arm64.tar.gz"
+      sha256 "b6c436397d24be5d6c2d60b9b438b7480f664b7b778944d41a5a03f02a1045e1"
 
       def install
         bin.install "ghreport"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/Jmainguy/ghreport/releases/download/v0.0.1/ghreport_Linux_arm64.tar.gz"
-      sha256 "28b9a503c03e2378570a2400ca0eba57a9037bab3056f2e3f53bed8671025876"
+    if Hardware::CPU.intel?
+      url "https://github.com/Jmainguy/ghreport/releases/download/v0.1.0/ghreport_Linux_x86_64.tar.gz"
+      sha256 "c288e06a2518cb5e135d1895efe224a93d84fbaa835dd29de644e6189eaba051"
 
       def install
         bin.install "ghreport"
