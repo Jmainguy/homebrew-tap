@@ -10,8 +10,8 @@ class Ghreport < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/Jmainguy/ghreport/archive/v0.3.0.tar.gz"
-      sha256 "07d8656ed4f1e370dee3d867afa8bb3ecb2e7cbf1cd05ad17343700c9370c379"
+      url "https://github.com/Jmainguy/ghreport/archive/v0.4.0.tar.gz"
+      sha256 "49cea59e2ad0213558c0fdd4485ddbc96ed1c5c484be848bc1ea21517a9b421b"
 
       def install
         bin.install "ghreport"
